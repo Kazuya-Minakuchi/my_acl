@@ -10,6 +10,21 @@ Docker環境には以下の言語が含まれています：
 
 ## セットアップ
 
+### 0. 初回セットアップ（権限付与）
+
+初回使用時は、スクリプトファイルに実行権限を付与する必要があります：
+
+```bash
+# runディレクトリに移動
+cd run
+
+# start_docker.shに実行権限を付与
+chmod +x start_docker.sh
+
+# compile_run.shに実行権限を付与（存在する場合）
+chmod +x compile_run.sh
+```
+
 ### 1. Docker環境の起動
 
 ```bash
@@ -45,7 +60,7 @@ sh compile_run.sh
 
 ```bash
 # PyPyで実行（in.txtから入力）
-run sample.py
+pypy3 sample.py < in.txt
 ```
 
 ## 便利なコマンド
@@ -122,6 +137,15 @@ sudo systemctl start docker
 
 ### 権限エラーが発生する場合
 
+#### スクリプトファイルの権限エラー
+```bash
+# エラー: zsh: permission denied: ./start_docker.sh
+# 解決方法: 実行権限を付与
+chmod +x start_docker.sh
+chmod +x compile_run.sh
+```
+
+#### Docker権限エラー
 ```bash
 # ユーザーをdockerグループに追加
 sudo usermod -aG docker $USER
