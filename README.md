@@ -3,51 +3,58 @@ My AtCoder Library
 
 このリポジトリは、AtCoderの問題を解くためのC++とPyPyの実行環境とライブラリを管理するプロジェクトです。
 
-## セットアップ
+## 概要
 
-### 1. ac-libraryのダウンロード
+このプロジェクトには以下の要素が含まれています：
 
-AtCoder Library（ac-library）を公式からダウンロードして配置してください：
-
-```bash
-# runディレクトリに移動
-cd run
-
-# ac-libraryをダウンロード
-git clone https://github.com/atcoder/ac-library.git
-
-# または、最新版をダウンロードする場合
-wget https://github.com/atcoder/ac-library/archive/refs/heads/master.zip
-unzip master.zip
-mv ac-library-master ac-library
-```
-
-### 2. 実行環境の準備
-
-#### C++の場合
-- g++コンパイラが必要です
-- `compile_run.sh`スクリプトを使用してコンパイル・実行できます
-
-#### PyPyの場合
-- PyPy3がインストールされている必要があります
-- `sample.py`を参考にコードを実行できます
-
-## 使用方法
-
-### C++コードの実行
-```bash
-cd run
-./compile_run.sh your_code.cpp
-```
-
-### PyPyコードの実行
-```bash
-cd run
-pypy3 your_code.py
-```
+- **C++アルゴリズム実装**: `cpp/`ディレクトリに基本的なアルゴリズムの実装
+- **実行環境**: `run/`ディレクトリにDocker環境とローカル実行環境
+- **サンプルコード**: `sample/`ディレクトリにABC、ARC等の解答例
 
 ## ディレクトリ構造
 
-- `cpp/`: C++のアルゴリズム実装
-- `run/`: 実行環境とスクリプト
-- `sample/`: サンプルコード（ABC、ARC等）
+```
+my_acl/
+├── cpp/                    # C++のアルゴリズム実装
+│   ├── binary_search.cpp
+│   ├── bit_dp.cpp
+│   ├── breadth_first_search.cpp
+│   ├── depth_first_search.cpp
+│   ├── dijkstra.cpp
+│   ├── ford_fulkerson.cpp
+│   ├── longest_increasing_sequence.cpp
+│   ├── minimum_spanning_tree.cpp
+│   └── union_find.cpp
+├── run/                    # 実行環境とスクリプト
+│   ├── ac-library/         # AtCoder Library
+│   ├── compile_run.sh      # C++コンパイル・実行スクリプト
+│   ├── docker-compose.yml  # Docker環境設定
+│   ├── Dockerfile          # Dockerイメージ定義
+│   ├── start_docker.sh     # Docker環境起動スクリプト
+│   └── readme.md           # 実行環境の詳細説明
+└── sample/                 # サンプルコード
+    ├── ABC/                # AtCoder Beginner Contest解答例
+    └── ARC/                # AtCoder Regular Contest解答例
+```
+
+## 使用方法
+
+実行方法の詳細については、[run/readme.md](run/readme.md)を参照してください。
+
+## 含まれるアルゴリズム
+
+`cpp/`ディレクトリには以下の基本的なアルゴリズムが実装されています：
+
+- 二分探索 (Binary Search)
+- ビットDP (Bit DP)
+- 幅優先探索 (BFS)
+- 深さ優先探索 (DFS)
+- ダイクストラ法 (Dijkstra)
+- フォード・ファルカーソン法 (Ford-Fulkerson)
+- 最長増加部分列 (LIS)
+- 最小全域木 (MST)
+- Union-Find
+
+## ライセンス
+
+このプロジェクトは個人的な学習目的で作成されています。
