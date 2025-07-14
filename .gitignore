@@ -1,1 +1,13 @@
 .vscode/
+
+# 実行ファイル
+run/a.out
+run/test_run
+
+# ac-library（公式からダウンロードするため）
+run/ac-library/
+
+# その他の一時ファイル
+*.o
+*.exe
+*.out

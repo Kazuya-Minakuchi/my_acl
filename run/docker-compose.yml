@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  atcoder:
+    build: .
+    container_name: atcoder_env
+    volumes:
+      # 現在のディレクトリをコンテナの/workspaceにマウント
+      - .:/workspace
+      # Atcoder Libraryをマウント（既存のものを使用）
+      - ./ac-library:/workspace/ac-library
+    working_dir: /workspace
+    stdin_open: true
+    tty: true
+    # コンテナを起動したままにする
+    command: /bin/bash
