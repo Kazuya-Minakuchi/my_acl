@@ -60,7 +60,7 @@ sh compile_run.sh
 
 ```bash
 # PyPyで実行（in.txtから入力）
-pypy3 sample.py < in.txt
+pypy3 test_run.py < in.txt
 ```
 
 ## 便利なコマンド
@@ -76,7 +76,7 @@ pypy3 sample.py < in.txt
 - `docker-compose.yml`: Docker Compose設定
 - `start_docker.sh`: 環境起動スクリプト
 - `test_run.cpp`: テスト用C++ファイル
-- `sample.py`: テスト用Pythonファイル
+- `test_run.py`: テスト用Pythonファイル
 - `in.txt`: 入力ファイル
 - `ac-library/`: Atcoder Library
 
@@ -106,7 +106,7 @@ run test_run.cpp
 
 Python (PyPy)の実行
 ```bash
-pypy3 sample.py < in.txt
+pypy3 test_run.py < in.txt
 ```
 
 ### 4. コンテナの停止
@@ -183,7 +183,7 @@ sudo docker-compose exec atcoder bash
 
 # コンテナ内でのコマンド実行
 run test_run.cpp
-run sample.py
+run test_run.py
 g++ --version
 pypy3 --version
 ```

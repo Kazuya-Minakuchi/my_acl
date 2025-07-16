@@ -18,7 +18,7 @@ Docker環境を使用する場合は、`DOCKER_README.md`を参照してくだ�
 - `start_docker.sh`: 環境起動スクリプト
 - `compile_run.sh`: C++コンパイル・実行スクリプト
 - `test_run.cpp`: テスト用C++ファイル
-- `sample.py`: テスト用Pythonファイル
+- `test_run.py`: テスト用Pythonファイル
 - `in.txt`: 入力ファイル
 - `ac-library/`: AtCoder Library
 - `DOCKER_README.md`: Docker環境の詳細説明
