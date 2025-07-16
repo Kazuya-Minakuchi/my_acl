@@ -27,7 +27,7 @@ my_acl/
 │   └── union_find.cpp
 ├── run/                    # 実行環境とスクリプト
 │   ├── ac-library/         # AtCoder Library
-│   ├── compile_run.sh      # C++コンパイル・実行スクリプト
+│   ├── compile_run_cpp.sh  # C++コンパイル・実行スクリプト
 │   ├── docker-compose.yml  # Docker環境設定
 │   ├── Dockerfile          # Dockerイメージ定義
 │   ├── start_docker.sh     # Docker環境起動スクリプト

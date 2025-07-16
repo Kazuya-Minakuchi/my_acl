@@ -7,6 +7,7 @@
 Docker環境には以下の言語が含まれています：
 - **C++ 23 (gcc 12.2)**: Atcoder Library付き
 - **Python (PyPy 3.10-v7.3.12)**: 高速なPython実装
+- **Rust 1.70.0**: AtCoderで使用されるRustバージョン
 
 ## セットアップ
 
@@ -21,8 +22,11 @@ cd run
 # start_docker.shに実行権限を付与
 chmod +x start_docker.sh
 
-# compile_run.shに実行権限を付与（存在する場合）
-chmod +x compile_run.sh
+# compile_run_cpp.shに実行権限を付与（存在する場合）
+chmod +x compile_run_cpp.sh
+
+# compile_run_rust.shに実行権限を付与
+chmod +x compile_run_rust.sh
 ```
 
 ### 1. Docker環境の起動
@@ -53,7 +57,7 @@ docker-compose down
 
 コンパイル & 実行
 ```bash
-sh compile_run.sh
+sh compile_run_cpp.sh
 ```
 
 ### Pythonの実行
@@ -63,12 +67,21 @@ sh compile_run.sh
 pypy3 test_run.py < in.txt
 ```
 
+### Rustの実行
+
+```bash
+# Rustでコンパイル & 実行
+sh compile_run_rust.sh test_run.rs
+```
+
 ## 便利なコマンド
 
 - `run <file.cpp>`: C++ファイルをコンパイルして実行
 - `run <file.py>`: PythonファイルをPyPyで実行
+- `sh compile_run_rust.sh <file.rs>`: Rustファイルをコンパイルして実行
 - `g++`: C++23 + Atcoder Libraryでコンパイル
 - `pypy3`: PyPyでPythonを実行
+- `rustc`: Rustコンパイラ
 
 ## ファイル構成
 
@@ -77,6 +90,8 @@ pypy3 test_run.py < in.txt
 - `start_docker.sh`: 環境起動スクリプト
 - `test_run.cpp`: テスト用C++ファイル
 - `test_run.py`: テスト用Pythonファイル
+- `test_run.rs`: テスト用Rustファイル
+- `compile_run_rust.sh`: Rustコンパイル・実行スクリプト
 - `in.txt`: 入力ファイル
 - `ac-library/`: Atcoder Library
 
@@ -107,6 +122,11 @@ run test_run.cpp
 Python (PyPy)の実行
 ```bash
 pypy3 test_run.py < in.txt
+```
+
+Rustの実行
+```bash
+sh compile_run_rust.sh test_run.rs
 ```
 
 ### 4. コンテナの停止
@@ -142,7 +162,7 @@ sudo systemctl start docker
 # エラー: zsh: permission denied: ./start_docker.sh
 # 解決方法: 実行権限を付与
 chmod +x start_docker.sh
-chmod +x compile_run.sh
+chmod +x compile_run_cpp.sh
 ```
 
 #### Docker権限エラー
@@ -184,8 +204,10 @@ sudo docker-compose exec atcoder bash
 # コンテナ内でのコマンド実行
 run test_run.cpp
 run test_run.py
+sh compile_run_rust.sh test_run.rs
 g++ --version
 pypy3 --version
+rustc --version
 ```
 
 ### ContainerConfigエラーが発生する場合
