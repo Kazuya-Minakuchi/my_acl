@@ -17,17 +17,6 @@ const MOD: i64 = 1_000_000_007;
 const LINF: i64 = 9223372036854775807;
 
 // マクロ
-macro_rules! rep {
-    ($i:expr, $body:block) => {
-        for i in 0..$i $body
-    };
-}
-
-macro_rules! reps {
-    ($i:expr, $body:block) => {
-        for i in 1..=$i $body
-    };
-}
 
 macro_rules! dump {
     ($x:expr) => {
@@ -47,31 +36,31 @@ macro_rules! YES {
     };
 }
 
-macro_rules! cout {
+macro_rules! scout {
     ($x:expr) => {
         print!("{}", $x);
     };
 }
 
-macro_rules! coutln {
+macro_rules! cout {
     ($x:expr) => {
         println!("{}", $x);
     };
 }
 
-macro_rules! cerr {
+macro_rules! scerr {
     ($x:expr) => {
         eprint!("{}", $x);
     };
 }
 
-macro_rules! cerrln {
+macro_rules! cerr {
     ($x:expr) => {
         eprintln!("{}", $x);
     };
 }
 
-macro_rules! vecout {
+macro_rules! veccout {
     ($x:expr) => {
         for y in &$x {
             print!("{} ", y);
@@ -188,5 +177,5 @@ fn main() {
             ans += 1;
         }
     }
-    coutln!(ans);
+    cout!(ans);
 }
