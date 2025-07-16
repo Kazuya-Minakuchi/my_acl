@@ -187,3 +187,28 @@ run test_run.py
 g++ --version
 pypy3 --version
 ```
+
+### ContainerConfigエラーが発生する場合
+
+古いDocker Composeバージョン（1.29.2など）と新しいDockerイメージの互換性問題で発生するエラーです。
+
+#### エラーメッセージ例
+```
+ERROR: for atcoder  'ContainerConfig'
+KeyError: 'ContainerConfig'
+```
+
+#### 解決方法
+```bash
+# 1. 既存コンテナとボリュームを完全削除
+docker-compose down --volumes --remove-orphans
+
+# 2. Dockerシステムをクリーンアップ
+docker system prune -f
+
+# 3. 環境を再構築
+docker-compose up -d --build
+```
+
+#### 詳細説明
+このエラーは、Docker Compose 1.29.2などの古いバージョンが、新しいDockerイメージのメタデータ構造に対応していないために発生します。上記の手順で既存のコンテナとイメージを完全に削除し、新しく再構築することで解決できます。
