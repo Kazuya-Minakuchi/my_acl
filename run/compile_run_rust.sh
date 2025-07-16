@@ -19,7 +19,7 @@ echo ""
 
 # コンパイル
 echo "コンパイル中..."
-rustc -O "$RUST_FILE" -o "$EXECUTABLE_NAME"
+rustc -O -A warnings "$RUST_FILE" -o "$EXECUTABLE_NAME"
 
 if [ $? -eq 0 ]; then
     echo "コンパイル成功！"
