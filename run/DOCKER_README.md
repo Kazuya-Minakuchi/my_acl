@@ -11,7 +11,22 @@ Docker環境には以下の言語が含まれています：
 
 ## セットアップ
 
-### 0. 初回セットアップ（権限付与）
+### 0. 事前準備
+
+#### macOSユーザーの場合
+Docker Desktopがインストールされていない場合は、[Docker Desktop for Mac](https://www.docker.com/products/docker-desktop/)をインストールしてください。
+
+初回起動時やDockerが起動していない場合は、以下のコマンドでDocker Desktopを起動してください：
+```bash
+open -a Docker
+```
+
+Docker Desktopの起動には数分かかる場合があります。起動完了後、以下のコマンドで確認できます：
+```bash
+docker info
+```
+
+### 1. 初回セットアップ（権限付与）
 
 初回使用時は、スクリプトファイルに実行権限を付与する必要があります：
 
@@ -147,6 +162,23 @@ sudo docker-compose exec atcoder bash
 
 ### Dockerが起動しない場合
 
+#### macOSの場合
+```bash
+# エラーメッセージ例:
+# Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?
+
+# Docker Desktopが起動しているか確認
+docker info
+
+# Docker Desktopが起動していない場合、起動
+open -a Docker
+
+# 起動まで少し待つ（10-30程度）
+sleep10# 再度確認
+docker info
+```
+
+#### Linux/WSLの場合
 ```bash
 # Dockerサービスが起動しているか確認
 sudo systemctl status docker
