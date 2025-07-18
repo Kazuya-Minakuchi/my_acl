@@ -14,7 +14,7 @@ using mint = atcoder::modint998244353;
 #define rep(i, n) for (int i = 0; i < (int)(n); i++)
 #define reps(i, n) for(int i = 1; i <=(int)(n); i++)
 #define all(v) v.begin(), v.end()
-#define pb push_back
+#define pb emplace_back
 #define SZ(x) ((int)(x).size())
 #define dump(x) cerr << #x << " = " << (x) << endl;
 #define YES(n) cout << ((n) ? "YES" : "NO"  ) << endl
